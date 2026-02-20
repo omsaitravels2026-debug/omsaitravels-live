@@ -493,7 +493,7 @@ ul {
 }
 
 .title-line {
-    display: block;
+    display: inline-block;
     opacity: 0;
     transform: translateY(60px);
 }
