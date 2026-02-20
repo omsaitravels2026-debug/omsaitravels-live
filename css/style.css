@@ -490,20 +490,13 @@ ul {
     font-weight: 700;
     margin-bottom: 24px;
     color: var(--white);
-}
-
-.title-line {
-    display: inline-block;
     opacity: 0;
     transform: translateY(60px);
-}
-
-.title-line-1 {
     animation: titleReveal 0.8s var(--ease-expo-out) 0.3s forwards;
 }
 
-.title-line-2 {
-    animation: titleReveal 0.8s var(--ease-expo-out) 0.5s forwards;
+.title-line {
+    display: inline;
 }
 
 @keyframes titleReveal {
