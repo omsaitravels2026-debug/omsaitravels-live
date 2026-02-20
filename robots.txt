@@ -5,7 +5,7 @@ Disallow: /js/
 Disallow: /css/
 
 # Sitemap
-Sitemap: https://omsaitravels.in/sitemap.xml
+Sitemap: https://omsaitravelshubli.in/sitemap.xml
 
 # Crawl-delay (optional, for polite crawling)
 Crawl-delay: 5
