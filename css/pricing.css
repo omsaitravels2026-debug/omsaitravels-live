@@ -97,43 +97,33 @@
 /* Tablet & Mobile - Horizontal Scroll */
 @media (max-width: 1024px) {
     .pricing-grid {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        /* Space for scrollbar */
-        gap: 16px;
-        -webkit-overflow-scrolling: touch;
-        /* Smooth scroll iOS */
-        scrollbar-width: none;
-        /* Hide scrollbar Firefox */
-        overscroll-behavior-x: contain;
-
-        /* Edge-to-edge effect */
-        margin: 0 -24px;
-        padding: 0 24px 24px 24px;
-        width: auto;
-        /* Allow natural expansion with negative margins */
-        touch-action: pan-y;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 20px !important;
+        padding-bottom: 32px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        margin-left: -24px !important;
+        margin-right: -24px !important;
+        width: auto !important;
+        touch-action: auto !important;
     }
 
     .pricing-grid::-webkit-scrollbar {
-        display: none;
-        /* Hide scrollbar Chrome/Safari */
+        display: none !important;
     }
 
     .pricing-card {
-        min-width: 320px;
-        /* Fixed width for tablet */
-        scroll-snap-align: center;
+        flex: 0 0 auto !important;
+        width: 85vw !important;
+        max-width: 340px !important;
     }
 }
 
 @media (max-width: 640px) {
-    .pricing-card {
-        min-width: 85vw;
-        /* Use viewport width for better control */
-    }
-
     .card-image-wrapper {
         height: 200px;
         /* Slightly taller for cover effect */
