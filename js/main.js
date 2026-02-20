@@ -109,6 +109,7 @@ function animateCounter(element, target, suffix = '') {
     const duration = 2000;
     const start = 0;
     const startTime = performance.now();
+    const isFloat = target % 1 !== 0; // Check if the target is a float
 
     function update(currentTime) {
         const elapsed = currentTime - startTime;
@@ -116,12 +117,17 @@ function animateCounter(element, target, suffix = '') {
 
         // Ease out cubic
         const easeProgress = 1 - Math.pow(1 - progress, 3);
-        const current = Math.floor(start + (target - start) * easeProgress);
+        const current = start + (target - start) * easeProgress;
 
-        element.textContent = current + suffix;
+        // Handle floating point animation versus integer
+        const displayValue = isFloat ? current.toFixed(1) : Math.floor(current);
 
         if (progress < 1) {
+            element.textContent = displayValue + suffix;
             requestAnimationFrame(update);
+        } else {
+            // Ensure exact target is hit
+            element.textContent = (isFloat ? target.toFixed(1) : target) + suffix;
         }
     }
 
@@ -150,10 +156,9 @@ function initHeroAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 document.querySelectorAll('.stat-number').forEach(stat => {
-                    const count = parseInt(stat.dataset.count);
-                    const suffix = count >= 50 ? 'k+' : '+';
-                    const displayCount = count >= 50 ? count : count;
-                    animateCounter(stat, displayCount, suffix);
+                    const count = parseFloat(stat.dataset.count);
+                    const suffix = stat.dataset.suffix || '+';
+                    animateCounter(stat, count, suffix);
                 });
                 heroObserver.disconnect();
             }
