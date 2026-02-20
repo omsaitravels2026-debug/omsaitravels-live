@@ -951,27 +951,56 @@ function initPricingAnimations() {
         }
     }, 100);
 
-    // Grid Stagger
+    const isMobile = window.innerWidth <= 1024;
     const cards = document.querySelectorAll('.pricing-card');
+    const pricingGrid = document.querySelector('.pricing-grid');
+    const pricingSection = document.querySelector('.pricing-section');
 
-    gsap.fromTo(cards,
-        {
-            y: 60,
-            opacity: 0
-        },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'expo.out',
-            scrollTrigger: {
-                trigger: '.pricing-grid',
-                start: 'top 85%',
-                toggleActions: 'play none none none'
+    if (isMobile && pricingGrid && pricingSection) {
+        // Mobile GSAP Horizontal Scroll
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+
+            let updateGridWidth = () => {
+                return pricingGrid.scrollWidth - window.innerWidth + 48; // Account for padding
+            };
+
+            gsap.to(pricingGrid, {
+                x: () => -updateGridWidth(),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: pricingSection,
+                    start: "top top",
+                    end: () => "+=" + updateGridWidth(),
+                    pin: true,
+                    scrub: 1,
+                    markers: true, // Temporary markers for debugging
+                    invalidateOnRefresh: true,
+                }
+            });
+        });
+
+    } else {
+        // Desktop Grid Stagger (Original)
+        gsap.fromTo(cards,
+            {
+                y: 60,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: 'expo.out',
+                scrollTrigger: {
+                    trigger: '.pricing-grid',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
             }
-        }
-    );
+        );
+    }
 }
 
 // ============================================

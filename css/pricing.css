@@ -94,26 +94,22 @@
     z-index: 2;
 }
 
-/* Tablet & Mobile - Horizontal Scroll */
+/* Tablet & Mobile - Horizontal Scroll for GSAP */
 @media (max-width: 1024px) {
     .pricing-grid {
         display: flex !important;
         flex-wrap: nowrap !important;
-        overflow-x: auto !important;
+        overflow-x: hidden !important;
+        /* Managed by GSAP */
         overflow-y: hidden !important;
-        -webkit-overflow-scrolling: touch !important;
         gap: 20px !important;
         padding-bottom: 32px !important;
         padding-left: 24px !important;
         padding-right: 24px !important;
         margin-left: -24px !important;
         margin-right: -24px !important;
-        width: auto !important;
-        touch-action: auto !important;
-    }
-
-    .pricing-grid::-webkit-scrollbar {
-        display: none !important;
+        width: max-content !important;
+        /* Allow the grid to expand fully for GSAP */
     }
 
     .pricing-card {
