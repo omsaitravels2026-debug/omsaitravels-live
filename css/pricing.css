@@ -109,7 +109,7 @@
         margin-left: -24px !important;
         margin-right: -24px !important;
         width: auto !important;
-        touch-action: pan-x !important;
+        touch-action: pan-x pan-y !important;
     }
 
     .pricing-grid::-webkit-scrollbar {
