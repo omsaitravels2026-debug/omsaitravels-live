@@ -822,6 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAboutAnimations();
     initServicesAnimations();
     initPricingAnimations(); // New Pricing Section
+    initPricingScroll();
     initTestimonials();
     initBlogAnimations();
     initFAQ();
@@ -972,6 +973,28 @@ function initPricingAnimations() {
             }
         }
     );
+}
+
+// ============================================
+// PRICING SCROLL (MOBILE)
+// ============================================
+function initPricingScroll() {
+    const track = document.getElementById('pricingGrid');
+    const prevBtn = document.getElementById('pricingPrev');
+    const nextBtn = document.getElementById('pricingNext');
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    // Scroll amount = one card width + gap (approx 340px + 20px)
+    const scrollAmount = 360;
+
+    nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
 }
 
 // ============================================

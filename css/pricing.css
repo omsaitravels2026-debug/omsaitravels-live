@@ -321,3 +321,49 @@
     padding-top: 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* ============================================
+   PRICING MOBILE NAVIGATION ARROWS
+   ============================================ */
+.pricing-nav-wrapper {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .pricing-nav-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        margin-top: 24px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .pricing-nav-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .pricing-nav-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .pricing-nav-btn:hover,
+    .pricing-nav-btn:active {
+        background: var(--orange);
+        border-color: var(--orange);
+        transform: scale(1.05);
+    }
+}
