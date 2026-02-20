@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <!-- Home Page -->
     <url>
-        <loc>https://omsaitravels.in/</loc>
+        <loc>https://www.omsaitravels.in/</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    <!-- Blog Pages -->
     <url>
-        <loc>https://omsaitravels.in/blog/cabs-in-hubli.html</loc>
+        <loc>https://www.omsaitravels.in/blog/cabs-in-hubli.html</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://omsaitravels.in/blog/car-rental-in-hubli.html</loc>
+        <loc>https://www.omsaitravels.in/blog/car-rental-in-hubli.html</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://omsaitravels.in/blog/taxi-service-in-hubli.html</loc>
+        <loc>https://www.omsaitravels.in/blog/taxi-service-in-hubli.html</loc>
         <lastmod>2026-02-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
