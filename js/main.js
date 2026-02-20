@@ -177,7 +177,6 @@ function initHeroAnimations() {
 function initAboutAnimations() {
     const aboutContent = document.querySelector('.about-content');
     const featureItems = document.querySelectorAll('.feature-item');
-    const aboutStats = document.querySelectorAll('.about-stat');
     const verifiedBadge = document.querySelector('.verified-badge');
 
     // Main content reveal
@@ -212,40 +211,6 @@ function initAboutAnimations() {
             }
         }
     );
-
-    // Stats counter animation
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                aboutStats.forEach((stat, index) => {
-                    const numberEl = stat.querySelector('.about-stat-number');
-                    const count = parseInt(numberEl.dataset.count);
-                    const suffix = count >= 50 ? 'k+' : '+';
-                    const displayCount = count >= 50 ? count : count;
-
-                    gsap.fromTo(stat,
-                        { opacity: 0, scale: 0.5 },
-                        {
-                            opacity: 1,
-                            scale: 1,
-                            duration: 0.6,
-                            delay: index * 0.1,
-                            ease: 'expo.out',
-                            onStart: () => {
-                                animateCounter(numberEl, displayCount, suffix);
-                            }
-                        }
-                    );
-                });
-                statsObserver.disconnect();
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const aboutStatsSection = document.querySelector('.about-stats');
-    if (aboutStatsSection) {
-        statsObserver.observe(aboutStatsSection);
-    }
 
     // Verified badge
     gsap.fromTo(verifiedBadge,
